@@ -1,8 +1,9 @@
 function stringChop(str, size) {
-  if (str === null || size <= 0) return [];
+  // Check for null, empty string, non-numeric size, or invalid size
+  if (!str || isNaN(size) || size <= 0) return [];
 
   const result = [];
-  size = parseInt(size); // ensure size is treated as a number
+  size = parseInt(size); // convert to integer
 
   for (let i = 0; i < str.length; i += size) {
     result.push(str.slice(i, i + size));
